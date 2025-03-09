@@ -1,0 +1,42 @@
+version: "3"
+
+tasks:
+  "launch":
+    desc: "Run the flutter app"
+    cmds:
+      - flutter run -v
+
+  "launch:web":
+    desc: "Run the flutter app on the web"
+    cmds:
+      - flutter run -d chrome --web-port=5500 -v
+
+  "functions:build":
+    desc: "Build Cloud Functions"
+    cmds:
+      - cd functions && npm run build
+
+  "emulators":
+    desc: "Start the firebase emulators"
+    cmds:
+      - firebase emulators:start --project wonderwedding-aa6c3 --import dev/development_data --export-on-exit dev/development_data
+
+  "doctor":
+    desc: "Run flutter doctor"
+    cmds:
+      - flutter doctor
+
+  "devices":
+    desc: "List connected devices"
+    cmds:
+      - flutter devices
+
+  "auth:seed":
+    desc: "Seed user accounts"
+    cmds:
+      - firebase auth:import seeds/users.json --hash-algo=scrypt --rounds=8 --mem-cost=14
+
+  "generators:run":
+    desc: "Run the code generators"
+    cmds:
+      - dart run build_runner build
