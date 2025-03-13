@@ -14,13 +14,16 @@ class OTPVerifyLoginController extends GetxController {
   Future<bool> verifyLogin(String email, String otp) async {
     _verifyLoginInProgress = true;
     update();
-    final NetworkResponse response = await NetworkCaller.getRequest(
-      Urls.verifyOtp(email, otp),
+    final NetworkResponse response = await NetworkCaller.postRequest(
+      Urls.verifyOtp,
+      {'email': email, 'otp': otp},
     );
     _verifyLoginInProgress = false;
     update();
-    if (response.isSuccess && response.statusCode == 200) {
-      await AuthController.setAccessToken(response.responseJson?["data"]);
+    if (response.isSuccess && response.statusCode < 400) {
+      await AuthController.setAccessToken(
+        response.responseJson?["access_token"],
+      );
       return true;
     } else {
       return false;

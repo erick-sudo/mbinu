@@ -15,15 +15,16 @@ class EmailVerificationScreen extends StatefulWidget {
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 const SizedBox(height: 100),
@@ -42,27 +43,44 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "Please Enter your Email address",
+                  "Identify yoursel together with your password to login",
                   style: Theme.of(
                     context,
                   ).textTheme.titleMedium?.copyWith(color: Colors.grey),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
                 Form(
                   key: _formKey,
-                  child: TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty ||
-                          !RegExp(
-                            r'^[\w-.]+@([\w-]+\.)+\w{2,5}',
-                          ).hasMatch(value)) {
-                        return "please enter a valid email address";
-                      } else {
-                        return null;
-                      }
-                    },
-                    controller: _emailTEController,
-                    decoration: const InputDecoration(labelText: "Email"),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "username, phone or email is required";
+                          } else {
+                            return null;
+                          }
+                        },
+                        controller: _emailTEController,
+                        decoration: const InputDecoration(
+                          labelText: "Username, phone or email",
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "password is required";
+                          } else {
+                            return null;
+                          }
+                        },
+                        controller: _passwordTEController,
+                        decoration: const InputDecoration(
+                          labelText: "Password",
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -95,14 +113,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   Future<void> verifyEmail(EmailVerificationController controller) async {
     final response = await controller.verifyEmail(
       _emailTEController.text.trim(),
+      _passwordTEController.text.trim(),
     );
     if (response) {
       Get.to(() => OtpVerificationScreen(email: _emailTEController.text));
     } else {
-      Get.snackbar(
-        "error",
-        "Email verification has failed! please try again",
-      );
+      Get.snackbar("error", "Email verification has failed! please try again");
     }
   }
 }

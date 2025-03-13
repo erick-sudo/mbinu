@@ -49,13 +49,13 @@ class NetworkCaller {
         Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
-          'token': AuthController.accessToken.toString(),
+          'Authorization': "Bearer ${AuthController.accessToken.toString()}",
         },
         body: jsonEncode(body),
       );
       log(response.statusCode.toString());
       log(response.body);
-      if (response.statusCode == 200) {
+      if (response.statusCode < 400) {
         return NetworkResponse(
           true,
           response.statusCode,

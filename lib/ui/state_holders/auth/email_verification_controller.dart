@@ -11,15 +11,16 @@ class EmailVerificationController extends GetxController {
 
   String get message => _message;
 
-  Future<bool> verifyEmail(String email) async {
+  Future<bool> verifyEmail(String email, String password) async {
     _emailVerificationInProgress = true;
     update();
-    final NetworkResponse response = await NetworkCaller.getRequest(
-      Urls.userLogin(email),
+    final NetworkResponse response = await NetworkCaller.postRequest(
+      Urls.userLogin,
+      {'identity': email, 'password': password},
     );
     _emailVerificationInProgress = false;
     update();
-    if (response.isSuccess && response.statusCode == 200) {
+    if (response.isSuccess && response.statusCode < 400) {
       _message = response.responseJson?['data'] ?? "";
       return true;
     }

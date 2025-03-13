@@ -20,7 +20,106 @@ class CustomOtpField extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          SizedBox(height: 60, width: 60, child: TextFormField()),
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "please enter the correct otp code";
+                } else {
+                  return null;
+                }
+              },
+              controller: otpController1,
+              autofocus: true,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              maxLength: 1,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  FocusScope.of(context).nextFocus();
+                }
+              },
+              style: Theme.of(context).textTheme.titleLarge,
+              decoration: const InputDecoration(counterText: ""),
+            ),
+          ),
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "please enter the correct otp code";
+                } else {
+                  return null;
+                }
+              },
+              controller: otpController2,
+              autofocus: true,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              maxLength: 1,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  FocusScope.of(context).nextFocus();
+                }
+              },
+              style: Theme.of(context).textTheme.titleLarge,
+              decoration: const InputDecoration(counterText: ""),
+            ),
+          ),
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "please enter the correct otp code";
+                } else {
+                  return null;
+                }
+              },
+              controller: otpController3,
+              autofocus: true,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              maxLength: 1,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  FocusScope.of(context).nextFocus();
+                }
+              },
+              style: Theme.of(context).textTheme.titleLarge,
+              decoration: const InputDecoration(counterText: ""),
+            ),
+          ),
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "please enter the correct otp code";
+                } else {
+                  return null;
+                }
+              },
+              controller: otpController4,
+              autofocus: true,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              maxLength: 1,
+              // onChanged: (value){
+              //   if(value.length == 1){
+              //     FocusScope.of(context).nextFocus();
+              //   }
+              // },
+              style: Theme.of(context).textTheme.titleLarge,
+              decoration: const InputDecoration(counterText: ""),
+            ),
+          ),
         ],
       ),
     );
