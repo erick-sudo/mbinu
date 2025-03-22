@@ -7,34 +7,35 @@ class SliderData {
   String? createdAt;
   String? updatedAt;
 
-  SliderData(
-      {this.id,
-        this.title,
-        this.shortDes,
-        this.image,
-        this.productId,
-        this.createdAt,
-        this.updatedAt});
+  SliderData({
+    this.id,
+    this.title,
+    this.shortDes,
+    this.image,
+    this.productId,
+    this.createdAt,
+    this.updatedAt,
+  });
 
   SliderData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
-    shortDes = json['short_des'];
+    shortDes = json['shortDes'];
     image = json['image'];
-    productId = json['product_id'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    productId = json['productId'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['title'] = title;
-    data['short_des'] = shortDes;
+    data['shortDes'] = shortDes;
     data['image'] = image;
-    data['product_id'] = productId;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['productId'] = productId;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

@@ -39,8 +39,8 @@ class ProductDetails {
     color = json['color'];
     size = json['size'];
     productId = json['product_id'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
     product =
         json['product'] != null ? Product.fromJson(json['product']) : null;
   }
@@ -56,8 +56,8 @@ class ProductDetails {
     data['color'] = color;
     data['size'] = size;
     data['product_id'] = productId;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     if (product != null) {
       data['product'] = product!.toJson();
     }

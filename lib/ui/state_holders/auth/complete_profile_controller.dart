@@ -30,7 +30,7 @@ class CompleteProfileController extends GetxController {
 
     _completeProfileInProgress = false;
     update();
-    if (response.isSuccess && response.statusCode == 200) {
+    if (response.isSuccess && response.statusCode < 400) {
       return true;
     } else {
       _errorMessage = "Profile update failed!";

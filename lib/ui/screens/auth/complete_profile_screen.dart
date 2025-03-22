@@ -83,7 +83,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     validator: (value) {
                       if (value!.isEmpty ||
                           !RegExp(
-                                r'^[0-9]{11}$',
+                                r'^[0-9]{10}$',
                               ) /*this is another regex validation for number (r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')*/
                               .hasMatch(value)) {
                         return "please Enter your correct phone Number";

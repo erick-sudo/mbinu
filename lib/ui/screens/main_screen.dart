@@ -11,6 +11,7 @@ import 'package:mbinu/ui/state_holders/main_screen_controller.dart';
 import 'package:mbinu/ui/state_holders/new_products_controller.dart';
 import 'package:mbinu/ui/state_holders/popular_products_controller.dart';
 import 'package:mbinu/ui/state_holders/special_products_controller.dart';
+import 'package:mbinu/ui/utils/app_color.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -46,6 +47,13 @@ class _MainScreenState extends State<MainScreen> {
         return Scaffold(
           body: screens[controller.currentSelectedIndex],
           bottomNavigationBar: BottomNavigationBar(
+            currentIndex: controller.currentSelectedIndex,
+            unselectedItemColor: Colors.grey,
+            selectedItemColor: AppColor.primaryColor,
+            showSelectedLabels: true,
+            type: BottomNavigationBarType.shifting,
+            elevation: 4,
+            onTap: controller.onChanged,
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.home),

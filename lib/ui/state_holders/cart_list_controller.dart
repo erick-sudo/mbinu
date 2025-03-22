@@ -24,6 +24,7 @@ class CartListController extends GetxController {
       Urls.getCartList,
     );
     _cartListInProgress = false;
+    update();
     if (response.isSuccess) {
       _cartListModel = CartListModel.fromJson(response.responseJson!);
       _calculateTotalPrice();

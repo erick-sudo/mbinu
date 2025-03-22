@@ -51,8 +51,8 @@ class Product {
     remark = json['remark'];
     categoryId = json['category_id'];
     brandId = json['brand_id'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
     brand = json['brand'] != null ? Brand.fromJson(json['brand']) : null;
     category =
         json['category'] != null
@@ -74,8 +74,8 @@ class Product {
     data['remark'] = remark;
     data['category_id'] = categoryId;
     data['brand_id'] = brandId;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     if (brand != null) {
       data['brand'] = brand!.toJson();
     }

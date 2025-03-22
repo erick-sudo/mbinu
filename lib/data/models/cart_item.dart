@@ -25,24 +25,24 @@ class CartItem {
   CartItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     email = json['email'];
-    productId = json['product_id'];
+    productId = json['productId'];
     color = json['color'];
     size = json['size'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-    product = json['product'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
+    product = Product.fromJson(json['product']);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['email'] = email;
-    data['product_id'] = productId;
+    data['productId'] = productId;
     data['color'] = color;
     data['size'] = size;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['product'] = product;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['product'] = product?.toJson();
     return data;
   }
 }

@@ -28,7 +28,7 @@ class CategoryCard extends StatelessWidget {
             categoryData.categoryName ?? "",
             style: const TextStyle(
               overflow: TextOverflow.ellipsis,
-              fontSize: 15,
+              // fontSize: 15,
               color: AppColor.primaryColor,
               letterSpacing: 0.4,
             ),

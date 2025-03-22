@@ -55,8 +55,8 @@ class Data {
     city = json['city'];
     shippingAddress = json['shippingAddress'];
     email = json['email'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
   }
 
   Map<String, dynamic> toJson() {
@@ -68,8 +68,8 @@ class Data {
     data['city'] = city;
     data['shippingAddress'] = shippingAddress;
     data['email'] = email;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

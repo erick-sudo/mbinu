@@ -12,8 +12,8 @@ class Brand {
     id = json['id'];
     brandName = json['brandName'];
     brandImg = json['brandImg'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
   }
 
   Map<String, dynamic> toJson() {
@@ -21,8 +21,8 @@ class Brand {
     data['id'] = id;
     data['brandName'] = brandName;
     data['brandImg'] = brandImg;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

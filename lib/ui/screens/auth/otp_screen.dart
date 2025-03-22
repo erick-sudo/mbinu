@@ -232,9 +232,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     } else {
       Get.showSnackbar(
         const GetSnackBar(
+          icon: Icon(Icons.error_outlined),
           title: "Error",
           message: "Enter the correct otp",
-          duration: Duration(seconds: 1),
+          duration: Duration(seconds: 5),
+          showProgressIndicator: true,
         ),
       );
     }

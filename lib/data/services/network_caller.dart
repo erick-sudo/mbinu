@@ -53,8 +53,8 @@ class NetworkCaller {
         },
         body: jsonEncode(body),
       );
-      log(response.statusCode.toString());
-      log(response.body);
+      print(response.statusCode.toString());
+      print(response.body);
       if (response.statusCode < 400) {
         return NetworkResponse(
           true,
